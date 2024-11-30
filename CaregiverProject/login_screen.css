@@ -1,0 +1,37 @@
+body {
+    margin: auto;
+    height: 99vh;
+    width: 99vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid red 2px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid green 2px;
+    height: 50vh;
+    width: 40vw;
+    font-size: 1.5em;
+
+}
+input {
+    width: 70%;
+    height: 10%;
+    padding-left: 2%;
+    font-size: 1.25em;
+}
+
+.submit-button {
+    padding: 0%;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}

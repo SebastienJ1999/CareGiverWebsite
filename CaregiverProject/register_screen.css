@@ -1,0 +1,56 @@
+body {
+    margin: auto;
+    height: 99vh;
+    width: 99vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid red 2px;
+}
+ 
+.register-container {
+    border: solid green 2px;
+    height: 80vh;
+    width: 50vw;
+}
+#registrationForm {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.step.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    width: 50vw;
+    margin: auto;
+}
+
+input {
+    width: 70%;
+    height: 10%;
+    padding: 0%;
+}
+
+.step {
+    display: none;
+}
+
+.button-container {
+    text-align: center;
+    width: 70%;
+}
+.button-container button {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
