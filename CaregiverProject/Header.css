@@ -1,0 +1,52 @@
+body {
+ 
+}
+
+/* HEADER!!!!, check account gold, sign out red */
+header {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+nav ul.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul.menu li {
+    margin: 0 20px;
+}
+
+nav ul.menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+nav ul.menu li a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+
+nav ul.menu li a#check-account {
+    color: gold;
+}
+
+nav ul.menu li a#check-account:hover {
+    background-color: #b5903b;
+}
+
+nav ul.menu li a#sign-out {
+    color: red;
+}
+
+nav ul.menu li a#sign-out:hover {
+    background-color: #b54c3b;
+}
+
+/* End of Header!!!!!!!!*/
