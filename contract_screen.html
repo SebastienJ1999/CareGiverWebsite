@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contract</title>
+    <link rel="stylesheet" type="text/css" href="contract_screen.css">
+</head>
+<body>
+    <form action="contract_process.php" method="post">
+        <h1>Contract</h1>
+        <h3>Start Date</h3>
+        
+        <input type="date" name="startDate">
+
+        <h3>End Date</h3>
+        
+        <input type="date" name="endDate"> <br><br>
+
+        <input type="number" name="dailyHours" min="0" max="24" placeholder="Daily Working Hours"><br><br>
+        
+        <input type="text" id="caregiverName" name="caregiverName" placeholder="Caregiver ID"><br><br>
+        
+        <input type="text" id="parentName" name="parentName" placeholder="Parents ID"><br><br>
+
+        <input type="submit" class= "submit-button" value="Finish Contract">
+
+    </form>
+
+</body>
+
+</html>
