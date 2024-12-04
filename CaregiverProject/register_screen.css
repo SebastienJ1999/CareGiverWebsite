@@ -10,7 +10,7 @@ body {
     align-items: center;
     justify-content: center;
     /* border: solid red 2px; */
-    background-color: #333;
+    background-color: #b6b6b6;
     font-family: "Nunito", sans-serif;
     font-optical-sizing: auto;
     /* font-weight: <weight>; */
@@ -18,7 +18,7 @@ body {
 }
  
 .register-container {
-    border: solid green 2px;
+    border: solid rgb(57, 89, 233) 2px;
     height: 80vh;
     width: 50vw;
     background-color: white;
@@ -75,9 +75,9 @@ input {
 #nextBtn {
     /* padding: 0%; */
     cursor: pointer;
-    background-color: gold;
+    background-color: rgb(64, 135, 241);
     border: none;
-    box-shadow: 0px 0px 7px grey;
+    box-shadow: 0px 0px 7px rgb(0, 0, 0);
 }
 
 #prevBtn {
@@ -92,7 +92,7 @@ input {
 #submitBtn {
     /* padding: 0%; */
     cursor: pointer;
-    background-color: gold;
+    background-color: rgb(64, 135, 241);
     border: none;
     box-shadow: 0px 0px 7px grey;
 }
