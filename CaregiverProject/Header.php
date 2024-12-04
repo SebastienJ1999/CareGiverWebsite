@@ -13,9 +13,10 @@
         <nav>
             <ul class="menu"> <!--Adds header items w links to respective locations(change if needed) -->
                 <li><a href="check_account.php" id="check-account">Check Your Account</a></li>
-                <li><a href="caregiver.html">Browse for Caregivers</a></li>
-                <li><a href="parents.html">Browse for Parents</a></li>
-                <li><a href="contract.html">Fill Out a Contract</a></li>
+                <li><a href="browse_caregivers.php">Browse for Caregivers</a></li>
+                <li><a href="browse_parents_process.php">Browse for Parents</a></li>
+                <li><a href="contract_process.php">Fill Out a Contract</a></li>
+                <li><a href="pending_contracts.php">Pending Contracts</a></li>
                 <li><a href="sign_out.php" id="sign-out">Sign Out</a></li>
             </ul>
         </nav>

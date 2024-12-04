@@ -1,12 +1,13 @@
 body {
     margin: auto;
-    height: 99vh;
-    width: 99vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: solid red 2px;
+    /* border: solid blue 2px; */
+    background-color: #333;
+
 }
 
 form {
@@ -14,11 +15,12 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: solid green 2px;
+    /* border: solid green 2px; */
     height: 50vh;
     width: 40vw;
     font-size: 1.5em;
-
+    background-color: white;
+    border-radius: 3%;
 }
 input {
     width: 70%;

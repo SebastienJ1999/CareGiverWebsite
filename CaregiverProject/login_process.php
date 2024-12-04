@@ -25,7 +25,7 @@ if ($result->num_rows > 0) {
         $_SESSION['username'] = $username;
 
         // Redirect to main menu
-        header("Location: main_menu_screen.php");
+        header("Location: main_menu.php");
         exit();
     } else {
         echo "Invalid password. Please try again.";

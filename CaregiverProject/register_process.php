@@ -21,8 +21,8 @@ $sql = "INSERT INTO members (username, name, password, address, phone, available
         VALUES ('$username', '$name', '$hashed_password', '$address', '$phone', '$available_time', 2000, $is_caregiver)";
 
 if ($conn->query($sql) === TRUE) {
-    // Get the ID of the newly inserted member
-    $member_id = $conn->insert_id;
+    // Get the username of the newly inserted member
+    $member_username = $username;
 
     // Get the form data for the parent (if provided)
     $parent_name = $_POST['parent_name'];
@@ -31,8 +31,8 @@ if ($conn->query($sql) === TRUE) {
 
     // If parent name is provided, add parent information to the parents table
     if (!empty($parent_name)) {
-        $sql_parent = "INSERT INTO parents (member_id, name, age, health_needs) 
-                       VALUES ('$member_id', '$parent_name', '$parent_age', '$parent_needs')";
+        $sql_parent = "INSERT INTO parents (member_username, name, age, health_needs) 
+                       VALUES ('$member_username', '$parent_name', '$parent_age', '$parent_needs')";
         
         if ($conn->query($sql_parent) !== TRUE) {
             echo "Error adding parent information: " . $conn->error;

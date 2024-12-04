@@ -11,45 +11,46 @@
             <h2>Register as a New Member</h2>
             <!-- Step 1 -->
             <div class="step active" id="step1">
-                <label for="username">Username:</label><br>
-                <input type="text" id="username" name="username" required><br><br>
+                <!-- <label for="username">Username:</label><br> -->
+                <input type="text" id="username" name="username" placeholder="Username"><br><br>
 
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name" required><br><br>
+                <!-- <label for="name">Name:</label><br> -->
+                <input type="text" id="name" name="name" placeholder="Name"><br><br>
 
-                <label for="password">Password:</label><br>
-                <input type="password" id="password" name="password" required><br><br>
+                <!-- <label for="password">Password:</label><br> -->
+                <input type="password" id="password" name="password" placeholder="Password"><br><br>
 
-                <label for="address">Address:</label><br>
-                <input type="text" id="address" name="address" required><br><br>
+                <!-- <label for="address">Address:</label><br> -->
+                <input type="text" id="address" name="address" placeholder="Address"><br><br>
 
-                <label for="phone">Phone Number:</label><br>
-                <input type="text" id="phone" name="phone" required><br><br>
+                <!-- <label for="phone">Phone Number:</label><br> -->
+                <input type="text" id="phone" name="phone" placeholder="Phone-Number"><br><br>
 
-                <label for="available_time">Available Hours Per Week:</label><br>
-                <input type="number" id="available_time" name="available_time" required><br><br>
+                <!-- <label for="available_time">Available Hours Per Week:</label><br> -->
+                <input type="number" id="available_time" name="available_time" placeholder="Available Hours Per Week"><br><br>
             </div>
 
             <!-- Step 2 -->
             <div class="step" id="step2">
-                <label for="is_caregiver">Are you a caregiver?</label>
-                <input type="checkbox" id="is_caregiver" name="is_caregiver" value="1"><br><br>
+                <!-- <label for="is_caregiver">Are you a caregiver?</label> -->
+                <!-- <input type="checkbox" id="is_caregiver" name="is_caregiver" value="1"><br><br> -->
 
                 <h3>Parent Information (optional)</h3>
-                <label for="parent_name">Parent's Name:</label><br>
-                <input type="text" id="parent_name" name="parent_name"><br><br>
+                <!-- <label for="parent_name">Parent's Name:</label><br> -->
+                <input type="text" id="parent_name" name="parent_name" placeholder="Parent's Name"><br><br>
 
-                <label for="parent_age">Parent's Age:</label><br>
-                <input type="number" id="parent_age" name="parent_age"><br><br>
+                <!-- <label for="parent_age">Parent's Age:</label><br> -->
+                <input type="number" id="parent_age" name="parent_age" placeholder="Parent's Age"><br><br>
 
-                <label for="parent_needs">Health Needs (e.g., requires assistance with mobility):</label><br>
-                <textarea id="parent_needs" name="parent_needs"></textarea><br><br>
+                <!-- <label for="parent_needs">Health Needs (e.g., requires assistance with mobility):</label><br> -->
+                <textarea id="parent_needs" name="parent_needs" placeholder="Parent's Needs"></textarea><br><br>
             </div>
 
             <div class="button-container">
                 <button type="button" id="prevBtn" style="display:none;" onclick="nextPrev(-1)">Previous</button>
                 <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-                <button type="submit" id="submitBtn" style="display:none;"><a href="login_screen.html">Submit</a></button>
+                <button type="submit" id="submitBtn" style="display:none;">Submit</a></button>
+                <p>Already have an account? <a href="login_screen.html">Login here</a></p>
             </div>
         </form>
     </div>
