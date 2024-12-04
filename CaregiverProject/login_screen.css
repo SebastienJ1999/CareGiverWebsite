@@ -9,7 +9,7 @@ body {
     align-items: center;
     justify-content: center;
     /* border: solid blue 2px; */
-    background-color: #333;
+    background-color: #b6b6b6;
     font-family: "Nunito", sans-serif;
     font-optical-sizing: auto;
     /* font-weight: <weight>; */
@@ -31,7 +31,7 @@ form {
 .container {
     background-color: white;
     border-radius: 3%;
-    box-shadow: 0px 0px 30px black;
+    box-shadow: 0px 0px 30px rgb(31, 85, 146);
 }
 input {
     width: 70%;
@@ -43,7 +43,7 @@ input {
 .submit-button {
     padding: 0%;
     cursor: pointer;
-    background-color: gold;
+    background-color: rgb(51, 131, 236);
     border: none;
     box-shadow: 0px 0px 20px grey;
 
