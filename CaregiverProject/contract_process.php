@@ -5,12 +5,18 @@ include('db_connect.php'); // Include the database connection
 // Start session
 session_start();
 
+// Ensure member is logged in
+if (!isset($_SESSION['username'])) {
+    header("Location: login_screen.html");
+    exit();
+}
+
 // Process the form submission if the form has been submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the form data for the contract
     $dailyHours = $_POST['dailyHours'];
-    $caregiverUsername = $_POST['caregiverName']; // This is now the caregiver's username
-    $memberUsername = $_POST['parentName']; // This is now the member's username (who is creating the contract)
+    $caregiverUsername = $_POST['caregiverName']; // Caregiver's username
+    $memberUsername = $_SESSION['username']; // Use the logged-in member's username
     $startDate = $_POST['startDate'];
     $endDate = $_POST['endDate'];
 
@@ -33,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,20 +50,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <form action="contract_process.php" method="post">
         <h1>Contract</h1>
         <h3>Start Date</h3>
-        
         <input type="date" name="startDate" required>
 
         <h3>End Date</h3>
-        
         <input type="date" name="endDate" required> <br><br>
 
         <input type="number" name="dailyHours" min="0" max="24" placeholder="Daily Working Hours" required><br><br>
-        
-        <input type="text" id="caregiverName" name="caregiverName" placeholder="Caregiver ID" required><br><br>
-        
-        <!-- <input type="text" id="parentName" name="parentName" placeholder="Parents ID" required><br><br> -->
+
+        <input type="text" id="caregiverName" name="caregiverName" placeholder="Caregiver Username" required><br><br>
 
         <input type="submit" class="submit-button" value="Finish Contract">
     </form>
 </body>
 </html>
+

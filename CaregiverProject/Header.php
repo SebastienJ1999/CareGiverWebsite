@@ -17,6 +17,7 @@
                 <li><a href="browse_parents_process.php">Browse for Parents</a></li>
                 <li><a href="contract_process.php">Fill Out a Contract</a></li>
                 <li><a href="pending_contracts.php">Pending Contracts</a></li>
+                <li><a href="view_active_contracts.php">View Active Contracts</a></li>
                 <li><a href="sign_out.php" id="sign-out">Sign Out</a></li>
             </ul>
         </nav>

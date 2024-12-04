@@ -2,7 +2,19 @@
 include('db_connect.php'); // Include the database connection
 include('Header.php'); // Include the header
 
-// Query to select parents along with their child information using a JOIN
+// Start session
+session_start();
+
+// Get the current logged-in user's username
+$current_username = $_SESSION['username'] ?? null;
+
+// Make sure the user is logged in
+if (!$current_username) {
+    header("Location: login_screen.html");
+    exit();
+}
+
+// Query to select members and their parents, excluding the current member and their parents
 $sql = "
     SELECT 
         parents.id AS parent_id, 
@@ -16,9 +28,14 @@ $sql = "
     LEFT JOIN 
         members 
     ON 
-        parents.member_username = members.username";
+        parents.member_username = members.username
+    WHERE 
+        members.username != ? AND parents.member_username != ?";
 
-$result = $conn->query($sql);
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ss", $current_username, $current_username);
+$stmt->execute();
+$result = $stmt->get_result();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,29 +73,29 @@ $result = $conn->query($sql);
             </tr>
         </thead>
         <tbody>
-    <?php
-    if ($result->num_rows > 0) {
-        // Output data for each row
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td>" . htmlspecialchars(isset($row["parent_name"]) ? $row["parent_name"] : '') . "</td>";
-            echo "<td>" . htmlspecialchars(isset($row["parent_id"]) ? $row["parent_id"] : '') . "</td>";
-            echo "<td>" . htmlspecialchars(isset($row["parent_age"]) ? $row["parent_age"] : '') . "</td>";
-            echo "<td>" . htmlspecialchars(isset($row["health_needs"]) ? $row["health_needs"] : '') . "</td>";
-            echo "<td>" . htmlspecialchars(isset($row["child_username"]) ? $row["child_username"] : '') . "</td>";
-            echo "<td>" . htmlspecialchars(isset($row["child_name"]) ? $row["child_name"] : '') . "</td>";
-            echo "</tr>";
-        }
-    } else {
-        echo "<tr><td colspan='6'>No members found.</td></tr>";
-    }
-    ?>
-</tbody>
-
+            <?php
+            if ($result->num_rows > 0) {
+                // Output data for each row
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . htmlspecialchars(isset($row["parent_name"]) ? $row["parent_name"] : '') . "</td>";
+                    echo "<td>" . htmlspecialchars(isset($row["parent_id"]) ? $row["parent_id"] : '') . "</td>";
+                    echo "<td>" . htmlspecialchars(isset($row["parent_age"]) ? $row["parent_age"] : '') . "</td>";
+                    echo "<td>" . htmlspecialchars(isset($row["health_needs"]) ? $row["health_needs"] : '') . "</td>";
+                    echo "<td>" . htmlspecialchars(isset($row["child_username"]) ? $row["child_username"] : '') . "</td>";
+                    echo "<td>" . htmlspecialchars(isset($row["child_name"]) ? $row["child_name"] : '') . "</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='6'>No members found.</td></tr>";
+            }
+            ?>
+        </tbody>
     </table>
 </body>
 </html>
 <?php
 // Close the connection
+$stmt->close();
 $conn->close();
 ?>

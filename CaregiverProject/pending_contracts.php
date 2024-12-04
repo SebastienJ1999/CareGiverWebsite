@@ -33,10 +33,19 @@ $result = $stmt->get_result();
         <?php
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
+                // Calculate the total hours for the contract
+                $start_date = new DateTime($row['start_date']);
+                $end_date = new DateTime($row['end_date']);
+                $interval = $start_date->diff($end_date);
+                $number_of_days = $interval->days + 1; // Including start and end date
+                $total_hours = $number_of_days * $row['daily_hours'];
+
+                // Display contract information
                 echo "<div class='contract-card'>";
                 echo "<p>Start Date: " . htmlspecialchars($row['start_date']) . "</p>";
                 echo "<p>End Date: " . htmlspecialchars($row['end_date']) . "</p>";
                 echo "<p>Daily Hours: " . htmlspecialchars($row['daily_hours']) . "</p>";
+                echo "<p>Total Hours for Contract: " . htmlspecialchars($total_hours) . "</p>";
                 echo "<form action='contract_response.php' method='post'>";
                 echo "<input type='hidden' name='contract_id' value='" . $row['id'] . "'>";
                 echo "<button type='submit' name='action' value='accept'>Accept</button>";

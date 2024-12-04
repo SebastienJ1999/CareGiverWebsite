@@ -48,7 +48,7 @@
     <header>
         <nav>
 		<!--
-            //ul class="menu"> <!--Adds header items w links to respective locations(change if needed)
+            //ul class="menu"> <Adds header items w links to respective locations(change if needed)
                 <li><a href="account.html" id="check-account">Check Your Account</a></li>
                 <li><a href="caregiver.html">Browse for Caregivers</a></li>
                 <li><a href="parents.html">Browse for Parents</a></li>
