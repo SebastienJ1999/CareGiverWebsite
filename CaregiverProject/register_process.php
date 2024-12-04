@@ -16,11 +16,13 @@ $is_caregiver = isset($_POST['is_caregiver']) ? 1 : 0;
 // Hash the password for security
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-// Insert the member data into the members table
+// Insert the member data into the members table using a prepared statement
 $sql = "INSERT INTO members (username, name, password, address, phone, available_time, care_dollars, is_caregiver) 
-        VALUES ('$username', '$name', '$hashed_password', '$address', '$phone', '$available_time', 2000, $is_caregiver)";
+        VALUES (?, ?, ?, ?, ?, ?, 2000, ?)";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ssssisi", $username, $name, $hashed_password, $address, $phone, $available_time, $is_caregiver);
 
-if ($conn->query($sql) === TRUE) {
+if ($stmt->execute()) {
     // Get the username of the newly inserted member
     $member_username = $username;
 
@@ -29,24 +31,27 @@ if ($conn->query($sql) === TRUE) {
     $parent_age = $_POST['parent_age'];
     $parent_needs = $_POST['parent_needs'];
 
-    // If parent name is provided, add parent information to the parents table
+    // If parent name is provided, add parent information to the parents table using a prepared statement
     if (!empty($parent_name)) {
         $sql_parent = "INSERT INTO parents (member_username, name, age, health_needs) 
-                       VALUES ('$member_username', '$parent_name', '$parent_age', '$parent_needs')";
-        
-        if ($conn->query($sql_parent) !== TRUE) {
-            echo "Error adding parent information: " . $conn->error;
+                       VALUES (?, ?, ?, ?)";
+        $stmt_parent = $conn->prepare($sql_parent);
+        $stmt_parent->bind_param("ssis", $member_username, $parent_name, $parent_age, $parent_needs);
+
+        if (!$stmt_parent->execute()) {
+            echo "Error adding parent information: " . $stmt_parent->error;
         }
+
+        $stmt_parent->close();
     }
 
     // Redirect to the login page after successful registration
     header("Location: login_screen.html");
     exit();
-
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $stmt->error;
 }
 
-// Close the database connection
+$stmt->close();
 $conn->close();
 ?>
