@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+
 body {
     margin: auto;
     height: 99vh;
@@ -6,13 +9,20 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: solid red 2px;
+    /* border: solid red 2px; */
+    background-color: #333;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    /* font-weight: <weight>; */
+    font-style: normal;
 }
  
 .register-container {
     border: solid green 2px;
     height: 80vh;
     width: 50vw;
+    background-color: white;
+    border-radius: 5%;
 }
 
 a {
@@ -52,6 +62,7 @@ input {
 .button-container {
     text-align: center;
     width: 70%;
+    /* border-radius: 5%; */
 }
 .button-container button {
     width: 100%;
@@ -59,4 +70,33 @@ input {
     margin: 10px;
     border-radius: 5px;
     cursor: pointer;
+}
+
+#nextBtn {
+    /* padding: 0%; */
+    cursor: pointer;
+    background-color: gold;
+    border: none;
+    box-shadow: 0px 0px 7px grey;
+}
+
+#prevBtn {
+    /* padding: 0%; */
+    cursor: pointer;
+    background-color: #333;
+    border: none;
+    box-shadow: 0px 0px 7px grey;
+    color: white;
+}
+
+#submitBtn {
+    /* padding: 0%; */
+    cursor: pointer;
+    background-color: gold;
+    border: none;
+    box-shadow: 0px 0px 7px grey;
+}
+
+a {
+    color: red;
 }

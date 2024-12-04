@@ -43,7 +43,7 @@ $stmt_user->close();
 // Query for Member's Parent
 $sql_parents = "SELECT name, age, health_needs FROM parents WHERE member_username = ?";
 $stmt_parents = $conn->prepare($sql_parents);
-$stmt_parents->bind_param("i", $member_id);
+$stmt_parents->bind_param("s", $current_username); // Use current_username instead of member_id
 $stmt_parents->execute();
 $result_parents = $stmt_parents->get_result();
 
@@ -76,8 +76,6 @@ $conn->close();
 
                 <p><strong>Care Dollars:</strong> <?php echo htmlspecialchars($user['care_dollars']); ?></p>
 
-                <!-- <label for="available_time"><strong>Remaining Weekly Hours:</strong></label><br>
-                <input type="number" id="available_time" name="available_time" value="<?php echo htmlspecialchars($user['available_time']); ?>"><br><br> -->
                 <p><strong>Remaining Weekly Hours:</strong> <?php echo htmlspecialchars($user['available_time']); ?></p>
 
                 <p><strong>Review Rating:</strong> <?php echo htmlspecialchars($user['avg_rating']); ?> / 5</p>
